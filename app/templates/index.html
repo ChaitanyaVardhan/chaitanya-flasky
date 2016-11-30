@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% import "_macros.html" as macros %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
@@ -10,4 +10,9 @@
 		{{ wtf.quick_form(form) }}
 	</div>
 	{% include '_posts.html' %}
+	{% if pagination %}
+	<div class="pagination">
+		{{ macros.pagination_widget(pagination, '.index') }}
+	</div>
+	{% endif %}
 {% endblock %}
