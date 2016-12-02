@@ -85,6 +85,7 @@ def post(id):
 
 
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit(id):
 	post = Post.query.get_or_404(id)
 	if current_user != post.author and \
